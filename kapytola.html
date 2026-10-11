@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skautský oddíl Kapytola | kapytola.cz</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        scout: {
+                            green: '#2d6a4f',
+                            lightGreen: '#52b788',
+                            bgBeige: '#fefae0',
+                            cardBeige: '#f4f1de',
+                            brown: '#603813',
+                            darkBrown: '#3a2e2b',
+                            yellow: '#dda15e',
+                            accentYellow: '#e9c46a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefae0;
+            color: #3a2e2b;
+        }
+    </style>
+</head>
+<body class="bg-scout-bgBeige text-scout-darkBrown selection:bg-scout-yellow selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-scout-yellow/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo & Brand -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-scout-green flex items-center justify-center text-white shadow-md group-hover:bg-scout-lightGreen transition-colors">
+                        <i class="fa-solid fa-tent text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold tracking-tight text-scout-green block">Kapytola</span>
+                        <span class="text-xs font-medium text-scout-brown tracking-widest uppercase">Skautský oddíl</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="#o-nas" class="hover:text-scout-green transition-colors">O nás</a>
+                    <a href="#kategorie" class="hover:text-scout-green transition-colors">Věkové kategorie</a>
+                    <a href="#schuzky" class="hover:text-scout-green transition-colors">Schůzky a akce</a>
+                    <a href="#galerie" class="hover:text-scout-green transition-colors">Galerie</a>
+                    <a href="#rodice" class="hover:text-scout-green transition-colors">Pro rodiče</a>
+                    <a href="#kontakt" class="bg-scout-green text-white px-5 py-2.5 rounded-xl shadow-md hover:bg-scout-lightGreen transition-all transform hover:-translate-y-0.5">Přidej se k nám</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-xl text-scout-darkBrown hover:bg-scout-cardBeige focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-scout-yellow/20 px-4 pt-2 pb-6 space-y-3">
+            <a href="#o-nas" class="block px-3 py-2 rounded-lg hover:bg-scout-cardBeige font-medium">O nás</a>
+            <a href="#kategorie" class="block px-3 py-2 rounded-lg hover:bg-scout-cardBeige font-medium">Věkové kategorie</a>
+            <a href="#schuzky" class="block px-3 py-2 rounded-lg hover:bg-scout-cardBeige font-medium">Schůzky a akce</a>
+            <a href="#galerie" class="block px-3 py-2 rounded-lg hover:bg-scout-cardBeige font-medium">Galerie</a>
+            <a href="#rodice" class="block px-3 py-2 rounded-lg hover:bg-scout-cardBeige font-medium">Pro rodiče</a>
+            <a href="#kontakt" class="block text-center bg-scout-green text-white px-3 py-3 rounded-xl shadow-md hover:bg-scout-lightGreen font-medium">Přidej se k nám</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden bg-gradient-to-b from-scout-cardBeige to-scout-bgBeige py-20 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-scout-yellow/20 px-4 py-2 rounded-full text-scout-brown font-semibold text-sm">
+                        <i class="fa-solid fa-compass text-scout-green"></i>
+                        <span>Vítejte na kapytola.cz</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-scout-darkBrown leading-tight">
+                        Dobrodružství, přátelství a příroda v oddíle <span class="text-scout-green">Kapytola</span>
+                    </h1>
+                    <p class="text-lg text-scout-brown/90 max-w-xl mx-auto lg:mx-0">
+                        Jsme skautský oddíl, kde děti objevují svět venku, učí se stát na vlastních nohách a zažívají nezapomenutelné zážitky na výpravách i táborech.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#kontakt" class="bg-scout-green text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:bg-scout-lightGreen transition-all transform hover:-translate-y-1 text-center">
+                            Přidej se k nám <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#o-nas" class="bg-white text-scout-darkBrown border-2 border-scout-yellow/40 px-8 py-4 rounded-xl font-semibold hover:bg-scout-cardBeige transition-all text-center">
+                            Více o nás
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-scout-green/10 aspect-[4/3]">
+                        <img src="https://placehold.co/800x600/2d6a4f/ffffff?text=Skauti+Kapytola" alt="Skautský tábor" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Floating badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-scout-yellow/30 hidden sm:flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-scout-yellow/20 flex items-center justify-center text-scout-brown font-bold">
+                            <i class="fa-solid fa-fire text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-medium">Již brzy</p>
+                            <p class="text-sm font-bold text-scout-darkBrown">Jarní táboření 2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="o-nas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-scout-darkBrown">Kdo jsme a co děláme?</h2>
+                <div class="w-20 h-1.5 bg-scout-yellow mx-auto rounded-full"></div>
+                <p class="text-scout-brown/80 text-lg">
+                    Kapytola je parta kluků a holek, kteří rádi tráví čas v přírodě, hrají hry, pomáhají druhým a nebojí se výzev.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-scout-cardBeige p-8 rounded-3xl border border-scout-yellow/20 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-scout-green text-white flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-scout-darkBrown mb-3">Naše hodnoty</h3>
+                    <p class="text-scout-brown/80 leading-relaxed">
+                        Vedeme děti k samostatnosti, čestnosti, přátelství, úctě k přírodě a pomoci slabším podle skautského zákona a slibu.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-scout-cardBeige p-8 rounded-3xl border border-scout-yellow/20 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-scout-yellow text-scout-darkBrown flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-scout-darkBrown mb-3">Příroda a výpravy</h3>
+                    <p class="text-scout-brown/80 leading-relaxed">
+                        Každý víkend vyrážíme ven – do lesů, skal nebo městských uliček. V létě pak žijeme dva týdny pod stany na našem tábořišti.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-scout-cardBeige p-8 rounded-3xl border border-scout-yellow/20 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-scout-brown text-white flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-scout-darkBrown mb-3">Bezpečná komunita</h3>
+                    <p class="text-scout-brown/80 leading-relaxed">
+                        Naši vedoucí jsou proškolení profesionálové, kteří vytvářejí pro děti bezpečné a podnětné prostředí plné zábavy.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Age Categories Section -->
+    <section id="kategorie" class="py-20 bg-scout-bgBeige">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-scout-darkBrown">Věkové kategorie</h2>
+                <div class="w-20 h-1.5 bg-scout-green mx-auto rounded-full"></div>
+                <p class="text-scout-brown/80 text-lg">
+                    Oddíl je rozdělen podle věku na menší družiny, kde má každý své místo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Vlčata -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-scout-yellow/20 flex flex-col justify-between">
+                    <div>
+                        <div class="h-32 rounded-2xl bg-scout-yellow/20 mb-6 overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-paw text-5xl text-scout-yellow"></i>
+                        </div>
+                        <span class="text-xs font-bold text-scout-yellow uppercase tracking-wider">6 – 10 let</span>
+                        <h3 class="text-xl font-bold text-scout-darkBrown mt-1 mb-3">Světlušky a vlčata</h3>
+                        <p class="text-scout-brown/80 text-sm">
+                            Objevování světa formou her, hádanek, tvoření a prvních výprav.
+                        </p>
+                    </div>
+                    <a href="#kontakt" class="mt-6 text-scout-green font-semibold text-sm hover:underline flex items-center">
+                        Mám zájem <i class="fa-solid fa-chevron-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Skauti -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-scout-yellow/20 flex flex-col justify-between">
+                    <div>
+                        <div class="h-32 rounded-2xl bg-scout-green/10 mb-6 overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-compass-drafting text-5xl text-scout-green"></i>
+                        </div>
+                        <span class="text-xs font-bold text-scout-green uppercase tracking-wider">10 – 15 let</span>
+                        <h3 class="text-xl font-bold text-scout-darkBrown mt-1 mb-3">Skauti a skautky</h3>
+                        <p class="text-scout-brown/80 text-sm">
+                            Větší samostatnost, tábornické dovednosti, uzly, orientace v přírodě a výpravy bez rodičů.
+                        </p>
+                    </div>
+                    <a href="#kontakt" class="mt-6 text-scout-green font-semibold text-sm hover:underline flex items-center">
+                        Mám zájem <i class="fa-solid fa-chevron-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Rovers -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-scout-yellow/20 flex flex-col justify-between">
+                    <div>
+                        <div class="h-32 rounded-2xl bg-scout-brown/10 mb-6 overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-fire-flame-curved text-5xl text-scout-brown"></i>
+                        </div>
+                        <span class="text-xs font-bold text-scout-brown uppercase tracking-wider">15 – 24 let</span>
+                        <h3 class="text-xl font-bold text-scout-darkBrown mt-1 mb-3">Roveři a rangers</h3>
+                        <p class="text-scout-brown/80 text-sm">
+                            Parta starších dospívajících, kteří pomáhají s vedením oddílu a podnikají náročnější akce.
+                        </p>
+                    </div>
+                    <a href="#kontakt" class="mt-6 text-scout-green font-semibold text-sm hover:underline flex items-center">
+                        Mám zájem <i class="fa-solid fa-chevron-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Leaders -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border border-scout-yellow/20 flex flex-col justify-between">
+                    <div>
+                        <div class="h-32 rounded-2xl bg-scout-lightGreen/20 mb-6 overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-user-tie text-5xl text-scout-lightGreen"></i>
+                        </div>
+                        <span class="text-xs font-bold text-scout-lightGreen uppercase tracking-wider">24+ let</span>
+                        <h3 class="text-xl font-bold text-scout-darkBrown mt-1 mb-3">Vedení oddílu</h3>
+                        <p class="text-scout-brown/80 text-sm">
+                            Dospělí dobrovolníci, kteří zajišťují chod oddílu, připravují program a předávají zkušenosti.
+                        </p>
+                    </div>
+                    <a href="#kontakt" class="mt-6 text-scout-green font-semibold text-sm hover:underline flex items-center">
+                        Přidej se k nám <i class="fa-solid fa-chevron-right ml-1 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meetings and Events Section -->
+    <section id="schuzky" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Schůzky -->
+                <div class="bg-scout-cardBeige p-8 sm:p-10 rounded-3xl border border-scout-yellow/20 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 bg-scout-green text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase mb-6">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Pravidelný program</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-scout-darkBrown mb-4">Kdy a kde se scházíme?</h3>
+                        <p class="text-scout-brown/80 mb-6">
+                            Každý týden probíhají družinové schůzky v naší klubovně. Všechny věkové kategorie mají vyhrazený svůj čas.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-2xl flex items-center justify-between shadow-sm">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-xl bg-scout-yellow/20 text-scout-brown flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-calendar-day"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-scout-darkBrown">Světlušky</h4>
+                                        <p class="text-xs text-gray-500">Úterý 16:30 – 18:00</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs bg-scout-green/10 text-scout-green px-3 py-1 rounded-full font-medium">Klubovna</span>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-2xl flex items-center justify-between shadow-sm">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-xl bg-scout-green/20 text-scout-green flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-calendar-day"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-scout-darkBrown">Vlčata</h4>
+                                        <p class="text-xs text-gray-500">Středa 16:00 – 17:30</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs bg-scout-green/10 text-scout-green px-3 py-1 rounded-full font-medium">Klubovna</span>
+                            </div>
+
+                            <div class="bg-white p-4 rounded-2xl flex items-center justify-between shadow-sm">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-xl bg-scout-brown/20 text-scout-brown flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-calendar-day"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-scout-darkBrown">Skauti a skautky</h4>
+                                        <p class="text-xs text-gray-500">Čtvrtek 17:00 – 19:00</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs bg-scout-green/10 text-scout-green px-3 py-1 rounded-full font-medium">Klubovna</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-scout-yellow/20 text-sm text-scout-brown font-medium flex items-center">
+                        <i class="fa-solid fa-location-dot mr-2 text-scout-green"></i> Adresa klubovny: Skautská 123, Město
+                    </div>
+                </div>
+
+                <!-- Nadcházející akce -->
+                <div class="bg-white p-8 sm:p-10 rounded-3xl border border-scout-yellow/20 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="inline-flex items-center space-x-2 bg-scout-yellow text-scout-darkBrown px-4 py-1.5 rounded-full text-xs font-bold uppercase mb-6">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <span>Nadcházející akce</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-scout-darkBrown mb-4">Kam vyrážíme?</h3>
+                        <p class="text-scout-brown/80 mb-6">
+                            Nenechte si ujít naše víkendové výpravy a speciální oddílové události.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="border border-scout-yellow/30 p-4 rounded-2xl flex items-start space-x-4">
+                                <div class="bg-scout-green text-white text-center rounded-xl p-3 min-w-[60px]">
+                                    <span class="block text-xs uppercase font-medium">Dub</span>
+                                    <span class="block text-xl font-extrabold">18</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-scout-darkBrown">Jednodenní výprava do Brd</h4>
+                                    <p class="text-xs text-scout-brown/80 mt-1">Sraz na nádraží v 8:00, návrat v 16:30. S sebou svačinu a šusťáku.</p>
+                                </div>
+                            </div>
+
+                            <div class="border border-scout-yellow/30 p-4 rounded-2xl flex items-start space-x-4">
+                                <div class="bg-scout-yellow text-scout-darkBrown text-center rounded-xl p-3 min-w-[60px]">
+                                    <span class="block text-xs uppercase font-medium">Kvě</span>
+                                    <span class="block text-xl font-extrabold">01</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-scout-darkBrown">Stavba tábora a jarní brigáda</h4>
+                                    <p class="text-xs text-scout-brown/80 mt-1">Víkendová akce pro starší členy a rodiče na naší základně.</p>
+                                </div>
+                            </div>
+
+                            <div class="border border-scout-yellow/30 p-4 rounded-2xl flex items-start space-x-4">
+                                <div class="bg-scout-green text-white text-center rounded-xl p-3 min-w-[60px]">
+                                    <span class="block text-xs uppercase font-medium">Čec</span>
+                                    <span class="block text-xl font-extrabold">04</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-scout-darkBrown">Letní tábor Kapytola 2026</h4>
+                                    <p class="text-xs text-scout-brown/80 mt-1">Vrchol celého roku! 14 dnů plných dobrodružství u potoka.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="galerie" class="py-20 bg-scout-cardBeige">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-scout-darkBrown">Fotogalerie ze života oddílu</h2>
+                <div class="w-20 h-1.5 bg-scout-yellow mx-auto rounded-full"></div>
+                <p class="text-scout-brown/80 text-lg">
+                    Okamžiky plné smíchu, táborových ohňů a nových přátelství.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group relative rounded-3xl overflow-hidden shadow-md aspect-[4/3] bg-scout-green/10">
+                    <img src="https://placehold.co/600x450/2d6a4f/ffffff?text=Táborový+oheň" alt="Táborový oheň" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="text-white font-medium text-sm">Večerní zpívání u ohně na táboře</span>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden shadow-md aspect-[4/3] bg-scout-green/10">
+                    <img src="https://placehold.co/600x450/dda15e/ffffff?text=Výprava+do+skal" alt="Výprava do skal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="text-white font-medium text-sm">Výprava na pískovcové skály</span>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden shadow-md aspect-[4/3] bg-scout-green/10">
+                    <img src="https://placehold.co/600x450/603813/ffffff?text=Stavba+stanů" alt="Stavba stanů" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="text-white font-medium text-sm">Společná stavba podsadových stanů</span>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden shadow-md aspect-[4/3] bg-scout-green/10">
+                    <img src="https://placehold.co/600x450/52b788/ffffff?text=Hry+v+lese" alt="Hry v lese" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="text-white font-medium text-sm">Celotáborová hra v hlubokém lese</span>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden shadow-md aspect-[4/3] bg-scout-green/10">
+                    <img src="https://placehold.co/600x450/e9c46a/ffffff?text=Vaření+v+přírodě" alt="Vaření v přírodě" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="text-white font-medium text-sm">Vaření na ohništi během víkendovky</span>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-3xl overflow-hidden shadow-md aspect-[4/3] bg-scout-green/10">
+                    <img src="https://placehold.co/600x450/3a2e2b/ffffff?text=Závod+družin" alt="Závod družin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                        <span class="text-white font-medium text-sm">Okresní kolo závodu družin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Parents & Join Us Section -->
+    <section id="rodice" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Informace pro rodiče -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 bg-scout-green/10 text-scout-green px-4 py-1.5 rounded-full text-xs font-bold uppercase">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Pro rodiče</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-scout-darkBrown">Často se ptáte...</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-scout-cardBeige p-5 rounded-2xl border border-scout-yellow/20">
+                            <h3 class="font-bold text-scout-darkBrown mb-1 flex items-center">
+                                <i class="fa-solid fa-circle-question text-scout-green mr-2"></i> Kolik stojí příspěvky?
+                            </h3>
+                            <p class="text-scout-brown/80 text-sm pl-6">
+                                Oddílové příspěvky činí 1500 Kč na pololetí a pokrývají pronájem klubovny, materiál na schůzky a pojištění.
+                            </p>
+                        </div>
+
+                        <div class="bg-scout-cardBeige p-5 rounded-2xl border border-scout-yellow/20">
+                            <h3 class="font-bold text-scout-darkBrown mb-1 flex items-center">
+                                <i class="fa-solid fa-circle-question text-scout-green mr-2"></i> Co dítě na schůzky potřebuje?
+                            </h3>
+                            <p class="text-scout-brown/80 text-sm pl-6">
+                                Na schůzky stačí pohodlné oblečení do klubovny/ven, zápisník a tužka. Na výpravy pak batůžek, lahev s pitím a pláštěnku.
+                            </p>
+                        </div>
+
+                        <div class="bg-scout-cardBeige p-5 rounded-2xl border border-scout-yellow/20">
+                            <h3 class="font-bold text-scout-darkBrown mb-1 flex items-center">
+                                <i class="fa-solid fa-circle-question text-scout-green mr-2"></i> Mohou se přijít děti napřed podívat?
+                            </h3>
+                            <p class="text-scout-brown/80 text-sm pl-6">
+                                Určitě! Nejlepší je domluvit se předem a dorazit na ukázkovou schůzku, kde si dítě vše vyzkouší nezávazně na zkoušku.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Přihláška / Kontakt Form -->
+                <div id="kontakt" class="bg-scout-cardBeige p-8 sm:p-10 rounded-3xl border border-scout-yellow/30 shadow-lg">
+                    <h2 class="text-2xl font-bold text-scout-darkBrown mb-2">Přidej se k nám!</h2>
+                    <p class="text-scout-brown/80 text-sm mb-6">
+                        Napište nám a my se vám ozveme zpět s podrobnostmi o nejbližší schůzce.
+                    </p>
+
+                    <form id="contact-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <div>
+                            <label class="block text-xs font-bold text-scout-darkBrown uppercase mb-1">Jméno rodiče / zájemce</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-white border border-scout-yellow/40 focus:outline-none focus:border-scout-green text-sm" placeholder="Jan Novák">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-scout-darkBrown uppercase mb-1">E-mailová adresa</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-xl bg-white border border-scout-yellow/40 focus:outline-none focus:border-scout-green text-sm" placeholder="jan@novak.cz">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-scout-darkBrown uppercase mb-1">Věk dítěte</label>
+                            <input type="number" class="w-full px-4 py-3 rounded-xl bg-white border border-scout-yellow/40 focus:outline-none focus:border-scout-green text-sm" placeholder="Např. 9">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-scout-darkBrown uppercase mb-1">Zpráva nebo dotaz</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-xl bg-white border border-scout-yellow/40 focus:outline-none focus:border-scout-green text-sm" placeholder="Chceme se přijít podívat na schůzku..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-scout-green text-white py-3.5 rounded-xl font-bold hover:bg-scout-lightGreen transition-colors shadow-md">
+                            Odeslat zprávu
+                        </button>
+                    </form>
+
+                    <!-- Success Message Box -->
+                    <div id="success-box" class="hidden mt-4 p-4 bg-scout-green/10 border border-scout-green text-scout-green rounded-xl text-sm font-medium text-center">
+                        Děkujeme za zprávu! Ozveme se vám co nejdříve.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-scout-darkBrown text-scout-bgBeige py-12 border-t border-scout-yellow/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-scout-green flex items-center justify-center text-white">
+                            <i class="fa-solid fa-tent text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-white">Kapytola</span>
+                    </div>
+                    <p class="text-xs text-scout-bgBeige/70">
+                        Skautský oddíl fungující pod hlavičkou Junák – český skaut. Doména <strong class="text-scout-yellow">kapytola.cz</strong>.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Rychlé odkazy</h4>
+                    <ul class="space-y-2 text-xs text-scout-bgBeige/80">
+                        <li><a href="#o-nas" class="hover:text-scout-yellow transition-colors">O našem oddíle</a></li>
+                        <li><a href="#kategorie" class="hover:text-scout-yellow transition-colors">Věkové kategorie</a></li>
+                        <li><a href="#schuzky" class="hover:text-scout-yellow transition-colors">Schůzky a akce</a></li>
+                        <li><a href="#galerie" class="hover:text-scout-yellow transition-colors">Fotogalerie</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Kontaktujte nás</h4>
+                    <ul class="space-y-2 text-xs text-scout-bgBeige/80">
+                        <li><i class="fa-solid fa-envelope mr-2 text-scout-yellow"></i> info@kapytola.cz</li>
+                        <li><i class="fa-solid fa-phone mr-2 text-scout-yellow"></i> +420 123 456 789</li>
+                        <li><i class="fa-solid fa-location-dot mr-2 text-scout-yellow"></i> Skautská 123, Město</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Sociální sítě</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-scout-green transition-colors text-white">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-scout-green transition-colors text-white">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center hover:bg-scout-green transition-colors text-white">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-scout-bgBeige/60">
+                <p>&copy; 2026 Skautský oddíl Kapytola. Všechna práva vyhrazena.</p>
+                <p class="mt-2 sm:mt-0">Vytvořeno pro <span class="text-scout-yellow font-semibold">kapytola.cz</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission handler (Mock)
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successBox = document.getElementById('success-box');
+            
+            form.reset();
+            successBox.classList.remove('hidden');
+            
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
